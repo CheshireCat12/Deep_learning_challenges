@@ -37,7 +37,7 @@ class Segnet(nn.Module):
     def __init__(self, num_classes):
         self.num_classes = num_classes
 
-        encoder = list(models.vgg16_bn(pretrained=True).feature.children())
+        encoder = list(models.vgg16_bn(pretrained=True).features.children())
 
         self.enc1 = nn.Sequential(*encoder[:7])
         self.enc3 = nn.Sequential(*encoder[14:24])
